@@ -252,7 +252,10 @@ class LdapEntityManager
 
     private function renderString($string, $vars)
     {
-        return $this->twig->render($string, $vars);
+    	$env = new \Twig_Environment(new \Twig_Loader_String());
+    	//return $env->render("Hello {{ name }}",array("name" => "World"));
+        //return $this->twig->render($string, $vars);
+        return $env->render($string, $vars);
     }
     /**
      * Build a DN for an entity with the use of dn annotation
